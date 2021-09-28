@@ -21,42 +21,44 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-import java.util.Arrays;
-class alg0001{
-	public static void main(String[] args){
-		
-		int[] arr = {2, 8, 5, 3, 9, 4, 1};
-		//System.out.println(Arrays.toString(arr));
-		//System.out.println(Arrays.toString(bubblesort(arr)));	
-		System.out.println(max(9,2,3));
+class largest{
+	public static void main(String [] args){
+		int[] a ={2,6,3,4,5};
+		System.out.println(max3n(20,30,4));
 	}
 
-	public static int[] bubblesort(int[] arr){
-		int tmp;
-		for(int i=0;i<arr.length-1;i++)
+	public static int max3n(int a, int b, int c){
+		int max=a;
+		if(b>max)
+			max=b;
+		if(c>max)
+			max=c;
+		return max;
+	}
+
+	public static int maximum(int[] a){
+		int max=a[0];
+		for(int i=1;i<a.length;i++)
+			if(a[i]>max)
+				max=a[i];
+		return max;
+	}
+
+	public static int l1(int[] a){
+		int max=a[0];
+		int l2=max;
+		int i=1;
+		while(i<a.length)	//for(int i=0;i<a.length;i++)
 		{
-			System.out.print("\ti="+i);
-			for(int j=1;j<arr.length-i;j++)
+			if (a[i]>max)
 			{
-				if (arr[j-1]>arr[j])
-				{
-					tmp = arr[j];
-					arr[j]=arr[j-1];
-					arr[j-1]=tmp;
-					System.out.print("\tswap" + "("+ (j-1) +","+j+")");
-				}
+				l2=max;
+				max=a[i];
 			}
-			System.out.print("\n");
+			else if(a[i]>l2)
+				l2=a[i];
+			i++;
 		}
-		return arr;
-	}
-	public static int max(int a, int b, int c){
-		int m=a;
-		if(b>m)
-			m=b;
-		if(c>m)
-			m=c;
-
-		return m;
+		return l2;
 	}
 }

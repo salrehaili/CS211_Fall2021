@@ -21,42 +21,33 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-import java.util.Arrays;
-class alg0001{
-	public static void main(String[] args){
-		
-		int[] arr = {2, 8, 5, 3, 9, 4, 1};
-		//System.out.println(Arrays.toString(arr));
-		//System.out.println(Arrays.toString(bubblesort(arr)));	
-		System.out.println(max(9,2,3));
+class power{
+	public static void main(String[] args)
+	{
+		long start = System.nanoTime();
+		System.out.println(p(30000000000.2,200000000));
+		long end = System.nanoTime();
+		double seconds = (double)(end-start)/1000000000;
+		System.out.printf("%8.9f\n", seconds);
+		String a="dfsd";
+		String b="rrr";
+		int[] array= {2,4,9,23,435};
+		System.out.println(average(array));
+
+	}
+	public static double p(double b, int e){
+		double t=1.0;
+		for(int i=1;i<=e;i++)
+			t=t*b;
+		return t;
+
 	}
 
-	public static int[] bubblesort(int[] arr){
-		int tmp;
-		for(int i=0;i<arr.length-1;i++)
-		{
-			System.out.print("\ti="+i);
-			for(int j=1;j<arr.length-i;j++)
-			{
-				if (arr[j-1]>arr[j])
-				{
-					tmp = arr[j];
-					arr[j]=arr[j-1];
-					arr[j-1]=tmp;
-					System.out.print("\tswap" + "("+ (j-1) +","+j+")");
-				}
-			}
-			System.out.print("\n");
-		}
-		return arr;
-	}
-	public static int max(int a, int b, int c){
-		int m=a;
-		if(b>m)
-			m=b;
-		if(c>m)
-			m=c;
-
-		return m;
-	}
+	public static double average(int[] array) {
+	// write your code here
+		int sum=0;
+		for(int i=0;i<array.length;i++)
+			sum+=array[i];
+		return (double) sum/array.length;
+}
 }

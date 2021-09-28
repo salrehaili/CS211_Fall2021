@@ -1,3 +1,26 @@
+/*
+ * The MIT License
+ *
+ * Copyright (c) 2021 Sameer Alrehaili <salrehaili@gmail.com>.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
 /**
  * GCD1 using Brute Force method
  * GCD2 using Subtraction Method
@@ -14,15 +37,14 @@ class alg0002{
 		
 		//System.out.println(GCD1(2053801444,1254540146));
 		
-		long stime = System.currentTimeMillis();
-		System.out.println(GCD1(4200002,3000050));
-
-		System.out.printf("Took %.4f%n", (System.currentTimeMillis() - stime)/1e9);
+		//long stime = System.currentTimeMillis();
+		//System.out.println(GCD1(4200002,3000050));
+		//System.out.printf("Took %.4f%n", (System.currentTimeMillis() - stime)/1e9);
 
 
 		//System.out.println(GCD4(30,8));
 		//System.out.println(GCD2(80,48));
-		//System.out.println(GCD3(30,12));
+		System.out.println(GCD3_1(30,12));
 		//System.out.println(GCD1_1(16,27));  have no common divisor
 	}
 
@@ -65,13 +87,27 @@ class alg0002{
 		return a;
 	}
 
-	public static int GCD3(int a, int b){
+	public static int GCD3_1(int a, int b){
 		int c=0;
-		System.out.println(++c);
+		int r;
+		while(b!=0){
+			System.out.println(++c);
+			r= a%b;
+			a=b;
+			b=r;
+		}
+		return a;
+	}
+
+	public static int GCD3_2(int a, int b){
+		int c=0;
 		if (b==0)
 			return a;
 		else
-			return GCD3(b, a % b);
+		{
+			System.out.println(++c);
+			return GCD3_2(b, a % b);
+		}
 	}
 
 	public static int GCD4(int a, int b){

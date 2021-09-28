@@ -21,42 +21,22 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-import java.util.Arrays;
-class alg0001{
+class evenodd{
 	public static void main(String[] args){
-		
-		int[] arr = {2, 8, 5, 3, 9, 4, 1};
-		//System.out.println(Arrays.toString(arr));
-		//System.out.println(Arrays.toString(bubblesort(arr)));	
-		System.out.println(max(9,2,3));
+		eo(7);
+	}
+	public static void eo(int n){
+		for(int i=1;i<=2*n;i++)
+			if(i%2!=0)
+				System.out.print(i +", ");
+		System.out.println();
 	}
 
-	public static int[] bubblesort(int[] arr){
-		int tmp;
-		for(int i=0;i<arr.length-1;i++)
-		{
-			System.out.print("\ti="+i);
-			for(int j=1;j<arr.length-i;j++)
-			{
-				if (arr[j-1]>arr[j])
-				{
-					tmp = arr[j];
-					arr[j]=arr[j-1];
-					arr[j-1]=tmp;
-					System.out.print("\tswap" + "("+ (j-1) +","+j+")");
-				}
-			}
-			System.out.print("\n");
-		}
-		return arr;
-	}
-	public static int max(int a, int b, int c){
-		int m=a;
-		if(b>m)
-			m=b;
-		if(c>m)
-			m=c;
-
-		return m;
+	public static void eo1(int n){
+		for(int i=1;i<=n;i++)
+			if(i%2==0)
+				System.out.println( i +" even");
+			else
+				System.out.println( i+ " odd");
 	}
 }

@@ -21,42 +21,72 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-import java.util.Arrays;
-class alg0001{
+class gcd{
 	public static void main(String[] args){
-		
-		int[] arr = {2, 8, 5, 3, 9, 4, 1};
-		//System.out.println(Arrays.toString(arr));
-		//System.out.println(Arrays.toString(bubblesort(arr)));	
-		System.out.println(max(9,2,3));
+		long t1 = System.nanoTime();
+		System.out.println("gcd1 = "+gcd1(3000,1200));
+		long t2 = System.nanoTime();
+		System.out.printf("gcd1 took %.9f\n", (t2-t1)/1e9);
+
+
+		t1 = System.nanoTime();
+		System.out.println("gcd2 = "+gcd2(3000,1200));
+		t2 = System.nanoTime();
+		System.out.printf("gcd2 took %.9f\n", (t2-t1)/1e9);
+
+
+
+
+		t1 = System.nanoTime();
+		System.out.println("gcd3 = "+gcd3(3000,1200));
+		t2 = System.nanoTime();
+		System.out.printf("gcd3 took %.9f\n", (t2-t1)/1e9);
 	}
 
-	public static int[] bubblesort(int[] arr){
-		int tmp;
-		for(int i=0;i<arr.length-1;i++)
+	public static int gcd1(int a, int b){
+		int gcd=0;
+		int m =(a>b)?a:b;
+		int i=2;
+		while(i<=m)
 		{
-			System.out.print("\ti="+i);
-			for(int j=1;j<arr.length-i;j++)
-			{
-				if (arr[j-1]>arr[j])
-				{
-					tmp = arr[j];
-					arr[j]=arr[j-1];
-					arr[j-1]=tmp;
-					System.out.print("\tswap" + "("+ (j-1) +","+j+")");
-				}
-			}
-			System.out.print("\n");
+			if(a%i==0 && b%i==0 )
+				gcd=i;
+			i++;
 		}
-		return arr;
+		return gcd;
 	}
-	public static int max(int a, int b, int c){
-		int m=a;
-		if(b>m)
-			m=b;
-		if(c>m)
-			m=c;
 
-		return m;
+	public static int gcd2(int a, int b){
+		while(a!=b)
+		{
+			if(a>b)
+				a-=b;
+			else
+				b-=a;
+		}
+		return a;
 	}
+
+	public static int gcd3(int a, int b){
+		int r=0;
+		while(b!=0)
+		{
+			r=a%b;
+			a=b;
+			b=r;
+		}
+		return a;
+	}
+
+
 }
+n=4
+max=a[0];					1*2=2
+i=1;						1*1=1
+while(i<n){					n*1=n
+	if(a[i]>max)			2(n-1)=2n-2   (n-1)*2 =2(n-1)
+		max=a[i]			2(n-1)=2n-2
+	i++; 					2(n-1)=2n-2
+}
+return max;					1
+2+1+n+2n-2+2n-2+2n-2+1=7n-2
