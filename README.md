@@ -1,9 +1,2 @@
-
-python3 -m venv env
-
-source env/bin/activate
-pip3 install -r requirements.txt
-jupyter notebook
-
-
-./test.py
+# CS211_Fall2021
+This is the code of the course
