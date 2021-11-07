@@ -4,15 +4,15 @@
  * Dr. Sameer M. Alrehaili
 */
 //Write Java program to find a value in an array using linear search algorithm?
-class Cell{
+class Node{
 	private int value;
-	private Cell next;
-	Cell (int v, Cell n){
+	private Node next;
+	Node (int v, Node n){
 		value = v;
 		next = n;
 	}
 
-	public Cell getNext(){
+	public Node getNext(){
 		return this.next;
 	}
 	public int getValue(){
@@ -21,29 +21,89 @@ class Cell{
 	public void setValue(int v){
 		this.value = v;
 	}
+	public void setNext(Node n){
+		this.next = n;
+	}
 }
 public class linked_list{
 	public static void main(String[] args){
-		Cell temp = new Cell(17, null);
-		temp = new Cell(23, temp);
-		temp = new Cell(97, temp);
-		Cell myList = new Cell(44, temp);
-		//System.out.println(myList.next.next.next.next);
+		Node temp = new Node(17, null);
+		temp = new Node(23, temp);
+		temp = new Node(97, temp);
+		Node head = new Node(44, temp);
+		//System.out.println(head.next.next.next.next);
 
 
-		print_linked_list(myList);
+
+		r_print_linked_list(head);
 		System.out.println();
+
+
+
+		//Add at first
+		Node new_node1 = new Node(55, head);
+		head = new_node1;
+		
+		r_print_linked_list(head);
+		System.out.println();
+
+
+
+
+
+
+		//Add at after specific element 44
+		Node new_node2 = new Node(33, head);
+		Node curr = Search(head, 44);
+		new_node2.setNext(curr.getNext());
+		curr.setNext(new_node2);
+		
+
+		// Node curr = Search(head, 44);
+		// curr.setNext(new Node(33, curr.getNext()));
+
+
+
+		r_print_linked_list(head);
+		System.out.println();
+
+
+
+		// Delete
+		
+		
 	}
-	public static void print_linked_list(Cell head)
+	public static void r_print_linked_list(Node head)
 	{
 		System.out.print(head.getValue());
 		if(head.getNext() !=null)
 		{
 			System.out.print("-->");
-			print_linked_list(head.getNext());
+			r_print_linked_list(head.getNext());
 		}
 	}
 
+	public static void i_print_linked_list(Node head)
+	{
+		for(Node curr = head; curr != null;curr = curr.getNext())
+			{
+				System.out.print(curr.getValue());
+				System.out.print("-->");
+			}
+
+	}
+
+	public static Node Search(Node head, int key)
+	{
+		for(Node curr = head; curr != null;curr = curr.getNext())
+			{
+				if(curr.getValue() == key)
+					return curr;
+			}
+
+		return null;
+
+	}
 	
 }
 
