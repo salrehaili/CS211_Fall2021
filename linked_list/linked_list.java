@@ -10,7 +10,7 @@ class SSL{
 	SSL(){
 		this.head = null;
 	}
-	public void display()
+	public void display2()
 	{
 		for(Node curr = this.head; curr != null;curr = curr.getNext())
 			{
@@ -20,15 +20,59 @@ class SSL{
 			}
 			System.out.println();
 	}
+
+	public void display()
+	{
+		Node curr = this.head;
+		while(curr != null)
+			{
+				System.out.print(curr.getValue());
+				if(curr.getNext()!=null)
+					System.out.print("-->");
+
+				curr = curr.getNext();
+			}
+			System.out.println();
+	}
+
 	public void insertAtFront(Node n){
 		n.setNext(this.head);
 		this.head = n;
 	}
 
-	public void insert(Node n, Object key){
-		Node curr = this.SearchByValue(key);
-		n.setNext(curr.getNext());
-		curr.setNext(n);
+	public void insertAfter(Object v, Object key){
+		Node tmp = this.head;
+		while(tmp.getValue() !=key)
+		{
+			tmp = tmp.getNext();
+		}
+		Node newNode = new Node(v, null);
+		newNode.setNext(tmp.getNext());
+		tmp.setNext(newNode);
+	}
+
+	public void insertAtEnd(Object key){
+		Node tmp = this.head;
+		while(tmp.getNext() !=null)
+			tmp = tmp.getNext();
+
+		tmp.setNext(new Node(key, tmp.getNext()));
+	}
+
+	public void Delete(Object key){
+		if(key == this.head.getValue())
+			this.head = head.getNext();
+		else
+		{
+			Node tmp = this.head;
+			Node pre =this.head;
+			while(tmp.getValue() !=key)
+			{
+				pre = tmp;
+				tmp = tmp.getNext();
+			}
+			pre.setNext(tmp.getNext());
+		}
 	}
 
 	public Node SearchByValue(Object key)
@@ -82,11 +126,19 @@ public class linked_list{
 		ls.display();
 
 		//Add at some position after 44
-		ls.insert(new Node(33, null), 44);
+		//ls.insert(new Node(33, null), 44);
+		ls.insertAfter(33, 44);
 		ls.display();
 
 		//Add at last
+		ls.insertAtEnd(99);
+		ls.display();
 
+
+
+		//Delete 97
+		ls.Delete(55);
+		ls.display();
 
 		// Node n1 = new Node(17, null);
 		// n1 = new Node(23, n1);
