@@ -4,9 +4,25 @@
  * Dr. Sameer M. Alrehaili
 */
 
+//Doubly Linked List
+
+//Objective
+//The primary goal of this assignment is to get you writing Java programs. As a secondary goal, completing this assignment will help you ensure that you have a good knowledge of how to solve linked list-based problems.
+
+// The assignment consists of three java classes:
+// Node
+//DLL
+//DLL_test.java
+
+
+// Submission
+// your assignment
+
+
 class Node{
 	private Object value;
 	private Node next;
+	private Node prev;
 
 	Node(Object v, Node n){
 		this.value =v;
@@ -31,10 +47,13 @@ class Node{
 	}
 }
 
-class SLL{
+class DLL{
 	public Node head;
-	SLL(){
-		this.head=null;
+	public Node tail;
+	// Conctructor
+	DLL(){
+		this.head = null;
+		this.tail = null;
 	}
 
 	public  void display(){
@@ -100,8 +119,10 @@ class SLL{
 		}
 		return null;
 	}
+
+	
 }
-public class Linked_List{
+public class Doubly_Linked_List{
 	public static void main(String[] args){
 		// /*Node temp = new Node(17, null);
 		// temp = new Node(23, temp);
@@ -113,12 +134,13 @@ public class Linked_List{
 		// Node head = n1;
 
 
-		SLL ls = new SLL();
+		DLL ls = new DLL();
 		ls.insertAtFront(1);
 		ls.insertAtFront(21);
 		ls.insertAtFront(22);
 		ls.insertAtFront(3);
 		ls.display();
+
 
 		//ls.insertAtEnd(33);
 		//ls.insertAtFront(33);
