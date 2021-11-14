@@ -9,32 +9,36 @@ import java.util.Arrays;
 
 class Stack {
 	private int top;
-    private int[] storage;
+    private int[] arr;
 
-    Stack(int capacity) {
-    	if (capacity <= 0)
-    		throw new IllegalArgumentException("Stack's capacity must be positive");
-    	storage = new int[capacity];
+    Stack(int length) {
+    	if (length <= 0)
+    		throw new IllegalArgumentException("Stack's length must be positive");
+    	arr = new int[length];
     	top = -1;
     }
 
     void push(int value) {
-        if (top == storage.length)
-        	throw new StackException("Stack's underlying storage is overflow");
+        if (top == arr.length)
+        	throw new StackException("Stack's underlying array is overflow");
         top++;
-        storage[top] = value;
+        arr[top] = value;
     }
 
     int peek() {
     	if (top == -1)
     		throw new StackException("Stack is empty");
-    	return storage[top];
+    	return arr[top];
     }
 
-    void pop() {
+    int pop() {
     	if (top == -1)
     		throw new StackException("Stack is empty");
-    	top--;
+
+    	int tmp = arr[top];
+        arr[top]=0;
+        top--;
+        return tmp;
     }
 
     boolean isEmpty() {
@@ -46,7 +50,7 @@ class Stack {
     }
 
     public String toString() {
-    	return Arrays.toString(storage);
+    	return Arrays.toString(arr);
     }
 
     public class StackException extends RuntimeException {
