@@ -31,6 +31,8 @@ class Node{
 	{
 		this.value=v;
 	}
+
+	
 }
 
 class Stack{
@@ -66,6 +68,24 @@ class Stack{
 		return this.top;
 	}
 
+	public boolean isEmpty()
+	{
+		return (this.top==null);
+	}
+
+	// Count the elements of the lsit
+	
+	public int size(){
+		Node curr = this.top;
+		int c=0;
+		while(curr != null)
+		{
+			curr = curr.getNext();
+			c++;
+		}
+		return c;
+	}
+
 }
 public class LinkedList_Stack{
 	public static void main(String[] args){
@@ -88,6 +108,8 @@ public class LinkedList_Stack{
 		System.out.println(ls.peek().getValue());
 		ls.display(ls.top);
 
+		System.out.println(ls.isEmpty());
+		System.out.println(ls.size());
 		
 	
 	}
