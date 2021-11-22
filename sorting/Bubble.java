@@ -7,7 +7,7 @@
 import java.util.Arrays;
 class Bubble{
 	public static void main(String[] args){
-		int[] a={9, 4, 8, 1, 7, 2};
+		int[] a={9, 5, 4, 3, 1, 2};
 		System.out.println(Arrays.toString(a));
 		BubbleSort(a);
 		System.out.println(Arrays.toString(a));
@@ -25,6 +25,7 @@ class Bubble{
 					a[j]=tmp;
 				}
 			}
+			System.out.println("#->"+ Arrays.toString(a));
 		}
 	}
 }

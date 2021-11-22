@@ -1,0 +1,56 @@
+    public void enqueue(int v){
+		this.front++;
+		this.arr[this.front] = v;
+	}
+
+    int peek() {
+    	if (front == -1)
+    		throw new StackException("Stack is empty");
+    	return arr[front];
+    }
+
+    int dequeue() {
+    	if (front == -1)
+    		throw new StackException("Stack is empty");
+
+
+    	int tmp = arr[0];
+    	for(int i=1;i<=this.front;i++)
+    		this.arr[i-1] = this.arr[i];
+        this.arr[this.front]=0;
+        front--;
+        return tmp;
+    }
+
+  
+
+
+	public void enqueue(Object v){
+		
+		if(this.front == null)
+		{
+			Node new_node = new Node(v, null);
+			this.front = new_node;
+
+		}
+		else
+		{
+			Node curr = this.front;
+			while(curr.getNext()!= null)
+				curr = curr.getNext();
+			
+			Node new_node = new Node(v, null);
+			curr.setNext(new_node);
+		}
+	
+	}
+
+	public Node dequeue(){
+		Node tmp =this.front;
+		this.front=this.front.getNext();
+		return tmp;
+	}
+	public Node peek(){
+		return this.front;
+	}
+
