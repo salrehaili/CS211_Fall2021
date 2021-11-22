@@ -4,7 +4,7 @@
  * Dr. Sameer M. Alrehaili
 */
 
-//Array-based Stack Implementation
+//Array-based Queue Implementation
 import java.util.Arrays;
 
 class Queue {

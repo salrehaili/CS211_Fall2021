@@ -4,7 +4,7 @@
  * Dr. Sameer M. Alrehaili
 */
 
-//Building a stack using an array
+//Building a queue using an array
 
 class Node{
 	private Object value;	// Holds the data of the node
@@ -100,7 +100,7 @@ class Queue{
 	}
 
 }
-public class Queue_LinkedList{
+public class LinkedList_Queue{
 	public static void main(String[] args){
 		
 
