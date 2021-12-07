@@ -7,7 +7,8 @@
 import java.util.Arrays;
 class Selection{
 	public static void main(String[] args){
-		int[] a={9, 4, 8, 1, 7, 2};
+		//int[] a={9, 4, 8, 1, 7, 2};
+		int[] a = {7,9 ,31 ,19 ,5 ,13};
 		System.out.println(Arrays.toString(a));
 		SelectionSort(a);
 		System.out.println(Arrays.toString(a));
