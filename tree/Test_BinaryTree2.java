@@ -107,17 +107,17 @@ class BinaryTree{
 		if(root==null)
 			return;
 		
-		PLR(root.left);
+		LPR(root.left);
 		System.out.printf("%s ", root.getValue());
-		PLR(root.right);
+		LPR(root.right);
 	}
 
 public void LRP(Node root){
 		if(root==null)
 			return;
 		
-		PLR(root.left);
-		PLR(root.right);
+		LRP(root.left);
+		LRP(root.right);
 		System.out.printf("%s ", root.getValue());
 	}
 	
@@ -145,8 +145,6 @@ public class Test_BinaryTree2{
 		// tree.root.right.right = new Node(7);
 		// tree.root.right.right.left = new Node(14);
 
-
-
 		tree.insert(tree.root, 1,2);
 		tree.insert(tree.root, 1,3);
 		tree.insert(tree.root, 2,4);
@@ -160,17 +158,24 @@ public class Test_BinaryTree2{
 		tree.insert(tree.root, 6,13);
 		tree.insert(tree.root, 7,14);
 
+		//1 2 4 8 9 5 10 11 3 6 13 7 14 
+		//2 4 8 9 5 10 11 1 3 6 13 7 14 
+		//2 4 8 9 5 10 11 3 6 13 7 14 1 
+
+		//PLR //1 2 4 8 9 5 10 11 3 6 13 7 14 
 		
+		//LPR //8 4 9 2 10 5 11 1 13 6 3 14 7
+		//LRP //8 9 4 10 11 5 2 13 6 14 7 3 1
 		//System.out.println(tree.root.getValue());
 		tree.display(tree.root, 1, 'c');
 
-		tree.PLR(tree.root);	// pr-eorder
+		tree.PLR(tree.root);	// preorder
 		System.out.println();
 
-		tree.LPR(tree.root);	// in-order
+		tree.LPR(tree.root);	// inorder
 		System.out.println();
 
-		tree.LRP(tree.root); //post-order
+		tree.LRP(tree.root); //postorder
 		System.out.println();
 
 	}

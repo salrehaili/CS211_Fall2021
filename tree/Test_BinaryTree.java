@@ -81,17 +81,17 @@ class BinaryTree{
 		if(root==null)
 			return;
 		
-		PLR(root.left);
+		LPR(root.left);
 		System.out.printf("%s ", root.getValue());
-		PLR(root.right);
+		LPR(root.right);
 	}
 
 public void LRP(Node root){
 		if(root==null)
 			return;
 		
-		PLR(root.left);
-		PLR(root.right);
+		LRP(root.left);
+		LRP(root.right);
 		System.out.printf("%s ", root.getValue());
 	}
 	
